@@ -2,12 +2,14 @@ const { JSONResponse } = require("../lib/helper");
 const Category = require("../models/category.model");
 
 class CategoryController{
-
+/**
+ * ### Description
+ * creates a category with the data passed in the request
+ */
     static createCategory = async (req, res, next) =>{
         try{
             const category = await new Category(req.body).save()
             JSONResponse.success(res, "Success", category, 200);
-
         }catch(error){
             JSONResponse.error(res, "Failed", error, 404);
         }
@@ -57,7 +59,7 @@ class CategoryController{
      * ### Description
      * Deletes the category from the database.
      */
-    static DeleteCategory = async (req,res, next)=>{
+    static deleteCategory = async (req,res, next)=>{
         try{
             const id = req.params.id;
             await Category.findByIdAndDelete(id);
