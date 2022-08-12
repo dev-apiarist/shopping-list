@@ -2,6 +2,16 @@ const { JSONResponse } = require("../lib/helper");
 const Category = require("../models/category.model");
 
 class CategoryController{
+
+    static createCategory = async (req, res, next) =>{
+        try{
+            const category = await new Category(req.body).save()
+            JSONResponse.success(res, "Success", category, 200);
+
+        }catch(error){
+            JSONResponse.error(res, "Failed", error, 404);
+        }
+    }
     /**
      * ### Description
      * Gets all the categories that were saved in the database.
