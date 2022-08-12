@@ -6,7 +6,7 @@ const {
 	createItem,
 	deleteItemsById,
 	getAllItems,
-	getItemById
+	getItemById,
 } = require('../controllers/items.controller')
 
 router.route('/').get(IndexController.index)
@@ -16,15 +16,14 @@ router.route('/shopping_list').post(createItem).get(getAllItems)
 router.route('/shopping_list/:id').delete(deleteItemsById).get(getItemById)
 
 router
-	.route("/categories/")
+	.route('/categories/')
 	.post(CategoryController.createCategory)
-	.get(CategoryController.getAllCategories);
+	.get(CategoryController.getAllCategories)
 
 router
-	.router("/category/:id")
+	.route('/category/:id')
 	.get(CategoryController.getCategoryById)
 	.patch(CategoryController.updateCategory)
 	.delete(CategoryController.deleteCategory)
-
 
 module.exports = router

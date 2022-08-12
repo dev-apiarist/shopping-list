@@ -5,15 +5,13 @@
         <h1>Shopping List</h1>
         <p>Add New Item</p>
       </div>
-
     </div>
-
   </div>
   <div class="shopping-form">
     <form (submit)="onSubmit()" [formGroup]="addList" action="">
       <h1>Add New Item</h1>
       <label for="">Item Name</label>
-      <input type="text" name="item_name" formControlName="item_name">
+      <input type="text" name="item_name" formControlName="item_name" />
 
       <label for="">Category</label>
       <select name="" id="" formControlName="category">
@@ -24,14 +22,12 @@
       </select>
 
       <label for="">Price</label>
-      <input type="number" formControlName="price" name="price">
+      <input type="number" formControlName="price" name="price" />
 
       <label for="">Quantity</label>
-      <input type="number" formControlName="quantity" name="quantity">
+      <input type="number" formControlName="quantity" name="quantity" />
 
-
-      <button type="submit"  > Add Item</button>
+      <button type="submit">Add Item</button>
     </form>
   </div>
 </div>
-
