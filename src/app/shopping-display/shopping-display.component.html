@@ -12,27 +12,22 @@
     <div class="grid">
       <ol>
         <li>
-          <p>Item Name: {{item.item_name}}</p>
-          <p>Quantity: {{item.quantity}}</p>
-          <p>Price: {{item.price}}</p>
-          <div>
-            <button class="del-btn">X</button>
+          <div class="card" *ngIf="item._id">
+            <div class="card__header">
+              <span class="btn__del" (click)="deleteItem(item._id)"><i class="fa-solid fa-trash-can"></i></span>
+              <span class="btn__edit" routerLink="/edit/{{item._id}}"><i class="fa-solid fa-pencil"></i></span>
+            </div>
+            <div class="card__body">
+              <p><span class="tag">Item</span>: {{item.item_name}}</p>
+              <p><span class="tag">Qty</span>: {{item.quantity}}</p>
+              <p><span class="tag">Price</span>: $ {{item.price}}</p>
+              
+            </div>
           </div>
         </li>
       </ol>
     </div>
 
   </div>
-
-
-  <!-- Colletions
-      - Item
-         - Category
-         - Price
-         - Amount
-
-      - Category
-         - Name -->
-
 
 </body>

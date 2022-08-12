@@ -40,3 +40,15 @@ exports.deleteItemsById = async (req, res) => {
 		JSONResponse.error(res, 'Failure handling item model.', error, 500)
 	}
 }
+/**
+ * ### Description
+ * Getting one item by item
+ */
+exports.getItemById = async (req, res) => {
+	try {
+		const item = await Items.findById(req.params.id)
+		JSONResponse.success(res, 'Success.', item, 200)
+	} catch (error) {
+		JSONResponse.error(res, 'Failure handling item model.', error, 500)
+	}
+}
